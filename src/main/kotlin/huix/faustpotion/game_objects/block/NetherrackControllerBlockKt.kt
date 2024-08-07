@@ -20,7 +20,12 @@ class NetherrackControllerBlockKt(isActive: Boolean) : ControllerBlock(Material.
         return FPBlocksKt.netherrack_controller_block.blockID
     }
 
-    override fun getBrickBlockID(): Block {
+    override fun getBrickBlock(): Block {
         return FPBlocksKt.netherrack_brick
     }
+
+    override fun getCoreBlock(): Block {
+        return FPBlocksKt.netherrack_controller_core
+    }
+
 }

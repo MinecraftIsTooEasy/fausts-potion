@@ -37,7 +37,8 @@
   },
   "custom": {
     "loom:injected_interfaces": {
-      "net/xiaoyu233/fml/reload/event/ItemRegistryEvent": ["huix/faustspotion/injected_interfaces/IIItemRegistryEvent"]
+      "net/xiaoyu233/fml/reload/event/ItemRegistryEvent": ["huix/faustspotion/injected_interfaces/IIItemRegistryEvent"],
+      "net/minecraft/EntityPlayer": ["huix/faustspotion/injected_interfaces/IIPlayer"]
     }
   }
 }

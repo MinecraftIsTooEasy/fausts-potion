@@ -22,7 +22,12 @@ class ObsidianControllerBlockKt(isActive: Boolean) : ControllerBlock(Material.ob
         return FPBlocksKt.obsidian_controller_block.blockID
     }
 
-    override fun getBrickBlockID(): Block {
+    override fun getBrickBlock(): Block {
         return FPBlocksKt.obsidian_brick
     }
+
+    override fun getCoreBlock(): Block {
+        return FPBlocksKt.obsidian_controller_core
+    }
+
 }

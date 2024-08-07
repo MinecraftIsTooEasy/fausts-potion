@@ -9,7 +9,11 @@
     "client.MinecraftMixin",
     "client.render.ItemRendererMixin",
     "client.render.RenderBlocksMixin",
+    "entity.player.ClientPlayerMixin",
     "entity.player.EntityPlayerMixin",
-    "fml.ItemRegistryEventMixin"
+    "entity.player.ServerPlayerMixin",
+    "fml.ItemRegistryEventMixin",
+    "network.Packet100OpenWindowMixin",
+    "tileentity.TileEntityMixin"
   ]
 }

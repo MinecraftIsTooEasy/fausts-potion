@@ -1,5 +1,6 @@
 package huix.faustspotion.game_objects.block;
 
+import huix.faustspotion.game_objects.tileentity.ReforgeTileEntity;
 import net.minecraft.*;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
 
@@ -19,6 +20,28 @@ public abstract class ControllerBlock extends BlockDirectionalWithTileEntity {
     }
 
     @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, EnumFace face, float offset_x, float offset_y, float offset_z) {
+        if (player.onServer()) {
+            ReforgeTileEntity tile_entity = (ReforgeTileEntity) world.getBlockTileEntity(x, y, z);
+            if (tile_entity == null || !this.isActive) {
+                return false;
+            }
+
+//            System.out.println("block");
+            player.displayReforgeGui(x, y, z, tile_entity);
+        }
+
+        return true;
+
+    }
+
+    @Override
+    public void breakBlock(World world, int x, int y, int z, int block_id, int metadata) {
+        super.breakBlock(world, x, y, z, block_id, metadata);
+        world.removeBlockTileEntity(x, y, z);
+    }
+
+    @Override
     public boolean canBeCarried() {
         return !this.isActive;
     }
@@ -30,7 +53,7 @@ public abstract class ControllerBlock extends BlockDirectionalWithTileEntity {
 
     @Override
     public void onBlockAdded(World world, int x, int y, int z) {
-        if (!this.getTrueBlockSide(world, x, y, z, this.getBrickBlockID())) {
+        if (!this.getTrueBlockSide(world, x, y, z, this.getBrickBlock())) {
             return;
         }
 
@@ -46,12 +69,12 @@ public abstract class ControllerBlock extends BlockDirectionalWithTileEntity {
                 last_block_x = x + 2;
             }
 
-            if (this.getTrueBlockForWE(world, middle_block_x, y - 1, z, this.getBrickBlockID()) &&
-                    this.getTrueBlockForWE(world, middle_block_x, y + 1, z, this.getBrickBlockID()) &&
-                    world.getBlock(middle_block_x, y, z) == this.getBrickBlockID() &&
-                    this.getTrueBlockSide(world, middle_block_x, y, z, this.getBrickBlockID()) &&
-                    world.getBlock(last_block_x , y, z) == this.getBrickBlockID() &&
-                    this.getTrueBlockSide(world, last_block_x, y, z, this.getBrickBlockID())
+            if (this.getTrueBlockForWE(world, middle_block_x, y - 1, z, this.getBrickBlock()) &&
+                    this.getTrueBlockForWE(world, middle_block_x, y + 1, z, this.getBrickBlock()) &&
+                    world.getBlock(middle_block_x, y, z) == this.getCoreBlock() &&
+                    this.getTrueBlockSide(world, middle_block_x, y, z, this.getBrickBlock()) &&
+                    world.getBlock(last_block_x , y, z) == this.getBrickBlock() &&
+                    this.getTrueBlockSide(world, last_block_x, y, z, this.getBrickBlock())
             ) {
                 world.setBlock(x, y, z, this.getActiveBlockID(), world.getBlockMetadata(x, y, z), 3);
             }
@@ -70,12 +93,12 @@ public abstract class ControllerBlock extends BlockDirectionalWithTileEntity {
                 last_block_z = z + 2;
             }
 
-            if (this.getTrueBlockForNS(world, x, y - 1, middle_block_z, this.getBrickBlockID()) &&
-                    this.getTrueBlockForNS(world, x, y + 1, middle_block_z, this.getBrickBlockID()) &&
-                    world.getBlock(x, y, middle_block_z) == this.getBrickBlockID() &&
-                    this.getTrueBlockSide(world, x, y, middle_block_z, this.getBrickBlockID()) &&
-                    world.getBlock(x , y, last_block_z) == this.getBrickBlockID() &&
-                    this.getTrueBlockSide(world, x, y, last_block_z, this.getBrickBlockID())
+            if (this.getTrueBlockForNS(world, x, y - 1, middle_block_z, this.getBrickBlock()) &&
+                    this.getTrueBlockForNS(world, x, y + 1, middle_block_z, this.getBrickBlock()) &&
+                    world.getBlock(x, y, middle_block_z) == this.getCoreBlock() &&
+                    this.getTrueBlockSide(world, x, y, middle_block_z, this.getBrickBlock()) &&
+                    world.getBlock(x , y, last_block_z) == this.getBrickBlock() &&
+                    this.getTrueBlockSide(world, x, y, last_block_z, this.getBrickBlock())
             ) {
                 world.setBlock(x, y, z, this.getActiveBlockID(), world.getBlockMetadata(x, y, z), 3);
             }
@@ -146,7 +169,9 @@ public abstract class ControllerBlock extends BlockDirectionalWithTileEntity {
 
     public abstract int getActiveBlockID();
 
-    public abstract Block getBrickBlockID();
+    public abstract Block getBrickBlock();
+
+    public abstract Block getCoreBlock();
 
     @Override
     public int idPicked(World par1World, int par2, int par3, int par4) {
@@ -162,7 +187,7 @@ public abstract class ControllerBlock extends BlockDirectionalWithTileEntity {
 
     @Override
     public TileEntity createNewTileEntity(World world) {
-        return null;
+        return new ReforgeTileEntity();
     }
 
     @Override
