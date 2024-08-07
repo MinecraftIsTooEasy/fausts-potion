@@ -1,0 +1,15 @@
+{
+  "compatibilityLevel": "JAVA_17",
+  "package": "huix.faustspotion.mixins",
+  "required": true,
+  "target": "DEFAULT",
+  "minVersion": "0.8.3",
+  "mixins": [
+    "block.BlockGravelMixin",
+    "client.MinecraftMixin",
+    "client.render.ItemRendererMixin",
+    "client.render.RenderBlocksMixin",
+    "entity.player.EntityPlayerMixin",
+    "fml.ItemRegistryEventMixin"
+  ]
+}

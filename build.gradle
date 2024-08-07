@@ -1,0 +1,65 @@
+plugins {
+	id 'fml-loom' version '1.4.5'
+	id "org.jetbrains.kotlin.jvm"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+
+loom {
+	accessWidenerPath = file("src/main/resources/faustpotion.accesswidener")
+	mergedMinecraftJar()
+	setFML(file("libs\\\\FishModLoader-v3.3.2.jar"))
+	mods {
+		"Faust's potion" {
+			sourceSet sourceSets.main
+		}
+	}
+
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings loom.fmlMCPMappings()
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation files(loom.getFML().toPath())
+
+	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_language_kotlin_version}"
+
+
+//	runtimeOnly(files("libs\\fastutil-8.5.12.jar"))
+//	runtimeOnly(files("libs\\PinIn-Lib-1.6.0.jar"))
+//	runtimeOnly(files("libs\\EMI-1.0.2.jar"))
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fml.mod.json") {
+		expand "version": project.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 17
+}
+
+java {
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.base.archivesName.get()}"}
+	}
+}
+
+compileKotlin.kotlinOptions.jvmTarget = "17"
