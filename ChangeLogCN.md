@@ -1,10 +1,23 @@
 #### 声明
+* 烹饪锅材质来自  FarmersDelight(MIT)
+* 锌,铝,锡,镍,铅,铂,铀材质来自 Silent Mechanisms
 * 锻造炉材质→屑史莱姆绘制,Gui→Xy_Lose
 * 烤制粘土材质来自 Don't Slay(侵删)
 * 淘金盘材质来自 TerraFirmaCraft: The Next Generation(EUPL v1.2)
 * 黏土砖材质来自 No Tree Punching(MIT)
 
 配方可通过EMI查看
+
+
+
+## 240808(V3)
+### 结构
+#### 矿物
+* 添加了锌,铝,锡,镍,铅,铂,铀
+#### 方块
+* 添加了烹饪锅
+
+---
 
 ## 240807(V2)
 ### 结构

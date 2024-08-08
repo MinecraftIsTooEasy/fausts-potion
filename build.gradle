@@ -32,9 +32,9 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_language_kotlin_version}"
 
 
-//	runtimeOnly(files("libs\\fastutil-8.5.12.jar"))
-//	runtimeOnly(files("libs\\PinIn-Lib-1.6.0.jar"))
-//	runtimeOnly(files("libs\\EMI-1.0.2.jar"))
+	runtimeOnly(files("libs\\fastutil-8.5.12.jar"))
+	runtimeOnly(files("libs\\PinIn-Lib-1.6.0.jar"))
+	runtimeOnly(files("libs\\EMI-1.0.2.jar"))
 }
 
 processResources {
