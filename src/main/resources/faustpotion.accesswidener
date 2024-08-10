@@ -57,6 +57,8 @@ accessible class net/minecraft/ContainerRepairINNER2
 accessible class net/minecraft/ComponentNetherBridgePiece
 accessible class net/minecraft/GuiBeaconButtonPower
 
+accessible method net/minecraft/EnumDirection getFace ()Lnet/minecraft/EnumFace;
+
 accessible method net/minecraft/EnumDirection isNorth ()Z
 accessible method net/minecraft/EnumDirection isSouth ()Z
 accessible method net/minecraft/EnumDirection isWest ()Z

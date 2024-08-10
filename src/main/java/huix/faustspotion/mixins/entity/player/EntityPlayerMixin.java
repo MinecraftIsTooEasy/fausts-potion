@@ -11,7 +11,7 @@ public class EntityPlayerMixin implements IIPlayer {
 
     @Unique
     @Override
-    public void displayReforgeGui(int x, int y, int z, ReforgeTileEntity tileEntity) {
+    public void displayReforgeGui(ReforgeTileEntity tileEntity) {
 
     }
 

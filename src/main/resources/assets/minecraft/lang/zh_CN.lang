@@ -19,6 +19,8 @@ item.platinum_ingot.name=铂锭
 item.platinum_nugget.name=铂粒
 item.uranium_nugget.name=铀粒
 item.uranium_ingot.name=铀锭
+item.scrap.name=合金废料
+
 
 
 
@@ -41,11 +43,19 @@ tile.uranium_block.name=铀块
 
 tile.cooking_pot.name=烹饪锅
 
-tile.obsidian_brick.name=黑曜石砖
-tile.netherrack_brick.name=地狱岩砖
+tile.obsidian_brick.name=黑曜石锻造砖
+tile.netherrack_brick.name=地狱岩锻造砖
+tile.stone_brick.name=石制锻造砖
 tile.obsidian_controller_block.name=黑曜石锻造炉控制器
 tile.netherrack_controller_block.name=地狱岩锻造炉控制器
+tile.stone_controller_block.name=圆石锻造炉控制器
 tile.obsidian_controller_block_idle.name=未激活的黑曜石锻造炉控制器
 tile.netherrack_controller_block_idle.name=未激活的地狱岩锻造炉控制器
+tile.stone_controller_block_idle.name=未激活的石制锻造炉控制器
 tile.obsidian_controller_core.name=黑曜石锻造炉控制器
+tile.stone_controller_core.name=石制锻造炉控制器
 tile.netherrack_controller_core.name=地狱岩锻造炉核心
+
+tile.netherrack_controller_block.reforge=地狱岩锻造炉
+tile.obsidian_controller_block.reforge=黑曜石锻造炉
+tile.stone_controller_block.reforge=石制锻造炉

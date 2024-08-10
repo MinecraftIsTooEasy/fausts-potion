@@ -5,13 +5,17 @@ import net.minecraft.Block
 import net.minecraft.IconRegister
 import net.minecraft.Material
 
-class ObsidianControllerBlockKt(isActive: Boolean) : ControllerBlock(Material.obsidian, isActive) {
+class ObsidianControllerBlockKt(id:Int, isActive: Boolean) : ControllerBlock(id, Material.obsidian, isActive) {
 
 
 
     override fun registerIcons(iconRegister: IconRegister) {
         this.blockIcon = iconRegister.registerIcon("controller/obsidian/side");
         this.iconFront = iconRegister.registerIcon(if (this.isActive) "controller/obsidian/front_on" else "controller/obsidian/front_off");
+    }
+
+    override fun getMaxTemperature(): Int {
+        return 1500;
     }
 
     override fun getIdleBlockID(): Int {

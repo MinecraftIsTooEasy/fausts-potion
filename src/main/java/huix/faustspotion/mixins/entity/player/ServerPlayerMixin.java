@@ -1,6 +1,7 @@
 package huix.faustspotion.mixins.entity.player;
 
 
+import huix.faustspotion.game_objects.block.BlockPos;
 import huix.faustspotion.game_objects.inventory.container.ReforgeContainer;
 import huix.faustspotion.game_objects.tileentity.ReforgeTileEntity;
 import huix.faustspotion.injected_interfaces.IIPlayer;
@@ -11,7 +12,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin( ServerPlayer.class )
-public class ServerPlayerMixin extends EntityPlayer implements IIPlayer {
+public class ServerPlayerMixin extends EntityPlayer {
 
     @Shadow
     public NetServerHandler playerNetServerHandler;
@@ -24,22 +25,21 @@ public class ServerPlayerMixin extends EntityPlayer implements IIPlayer {
 
     @Unique
     @Override
-    public void displayReforgeGui(int x, int y, int z, ReforgeTileEntity tileEntity) {
-//        System.out.println("server");
+    public void displayReforgeGui(ReforgeTileEntity tileEntity) {
         this.incrementWindowID();
-        TileEntity tile_entity = this.worldObj.getBlockTileEntity(x, y, z);
+//        System.out.println("ServerPlayer" + tileEntity);
+//        System.out.println(new BlockPos(tileEntity.xCoord, tileEntity.yCoord, tileEntity.zCoord));
+
         this.playerNetServerHandler.sendPacketToPlayer((new Packet100OpenWindow(this.currentWindowId,
-                20, tile_entity.getCustomInvName(), 9, tile_entity.hasCustomName())).setCoords(x, y, z));
-        this.openContainer = new ReforgeContainer(this, (ReforgeTileEntity) tile_entity);
+                20, tileEntity.getCustomInvName(), tileEntity.getSizeInventory(), tileEntity.hasCustomName())).setCoords(tileEntity));
+        this.openContainer = new ReforgeContainer(this, tileEntity);
         this.openContainer.windowId = this.currentWindowId;
-        ReflectHelper.dyCast(ServerPlayer.class, this).
-                sendContainerAndContentsToPlayer(this.openContainer, this.openContainer.getInventory());
+        this.openContainer.addCraftingToCrafters(ReflectHelper.dyCast(ServerPlayer.class, this));
     }
 
 
     @Shadow
     private void incrementWindowID(){
-
     }
 
     @Shadow
@@ -49,7 +49,6 @@ public class ServerPlayerMixin extends EntityPlayer implements IIPlayer {
 
     @Shadow
     public void sendChatToPlayer(ChatMessageComponent chatMessageComponent) {
-
     }
 
     @Shadow

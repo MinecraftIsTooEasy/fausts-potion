@@ -12,14 +12,20 @@ class FPBlocksKt {
     companion object {
         val obsidian_brick = BrickBlockKt(8.0F)
         val netherrack_brick = BrickBlockKt(10.0F)
+        val stone_brick = BrickBlockKt(10.0F)
 
-        val obsidian_controller_block = ObsidianControllerBlockKt(true)
-        val netherrack_controller_block = NetherrackControllerBlockKt(true)
-        val obsidian_controller_block_idle = ObsidianControllerBlockKt(false).setCreativeTab(CreativeTabs.tabDecorations)
-        val netherrack_controller_block_idle = NetherrackControllerBlockKt(false).setCreativeTab(CreativeTabs.tabDecorations)
+        val obsidian_controller_block = ObsidianControllerBlockKt(180,true)
+        val netherrack_controller_block = NetherrackControllerBlockKt(181, true)
+        val obsidian_controller_block_idle = ObsidianControllerBlockKt(182, false).setCreativeTab(CreativeTabs.tabDecorations)
+        val netherrack_controller_block_idle = NetherrackControllerBlockKt(183, false).setCreativeTab(CreativeTabs.tabDecorations)
+
+        val stone_controller_block = StoneControllerBlockKt(184, true)
+        val stone_controller_block_idle = StoneControllerBlockKt(185, false).setCreativeTab(CreativeTabs.tabDecorations)
+
 
         val obsidian_controller_core = BrickBlockKt(8.0F)
         val netherrack_controller_core = BrickBlockKt(10.0F)
+        val stone_controller_core = BrickBlockKt(10.0F)
 
         //活泼金属
         //Zn
@@ -72,12 +78,16 @@ class FPBlocksKt {
 
             registry.registerItemBlock("Faust's potion", "obsidian_brick", obsidian_brick)
             registry.registerItemBlock("Faust's potion", "netherrack_brick", netherrack_brick)
+            registry.registerItemBlock("Faust's potion", "stone_brick", stone_brick)
             registry.registerItemBlock("Faust's potion", "obsidian_controller_block", obsidian_controller_block)
             registry.registerItemBlock("Faust's potion", "netherrack_controller_block", netherrack_controller_block)
+            registry.registerItemBlock("Faust's potion", "stone_controller_block", stone_controller_block)
             registry.registerItemBlock("Faust's potion", "obsidian_controller_block_idle", obsidian_controller_block_idle)
             registry.registerItemBlock("Faust's potion", "netherrack_controller_block_idle", netherrack_controller_block_idle)
+            registry.registerItemBlock("Faust's potion", "stone_controller_block_idle", stone_controller_block_idle)
             registry.registerItemBlock("Faust's potion", "obsidian_controller_core", obsidian_controller_core)
             registry.registerItemBlock("Faust's potion", "netherrack_controller_core", netherrack_controller_core)
+            registry.registerItemBlock("Faust's potion", "stone_controller_core", stone_controller_core)
         }
     }
 }

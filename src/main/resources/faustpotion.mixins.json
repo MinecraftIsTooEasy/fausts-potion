@@ -13,7 +13,9 @@
     "entity.player.EntityPlayerMixin",
     "entity.player.ServerPlayerMixin",
     "fml.ItemRegistryEventMixin",
+    "item.ItemStackMixin",
     "network.Packet100OpenWindowMixin",
-    "tileentity.TileEntityMixin"
+    "tileentity.TileEntityMixin",
+    "world.chunk.AnvilChunkLoaderMixin"
   ]
 }

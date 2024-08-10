@@ -10,20 +10,67 @@ import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent
 class FPCraftTableRecipesKt {
     companion object {
         fun registerRecipes(register: RecipeRegistryEvent) {
-            register.registerShapedRecipe(
-                ItemStack(FPItemsKt.gold_pan_empty, 3),
+            register.registerShapedRecipe(ItemStack(FPBlocksKt.stone_brick, 6), false,
+                "ZZZ",
+                "XYX",
+                "ZZZ",
+                'X', FPItemsKt.bake_clay,
+                'Y', Block.brick,
+                'Z', Block.stoneBrick)
+            register.registerShapedRecipe(ItemStack(FPBlocksKt.obsidian_brick, 6), false,
+                "ZZZ",
+                "XYX",
+                "ZZZ",
+                'X', FPItemsKt.bake_clay,
+                'Y', Block.brick,
+                'Z', Block.obsidian)
+            register.registerShapedRecipe(ItemStack(FPBlocksKt.netherrack_brick, 6), false,
+                "ZZZ",
+                "XYX",
+                "ZZZ",
+                'X', FPItemsKt.bake_clay,
+                'Y', Block.brick,
+                'Z', Block.netherrack)
+
+            register.registerShapedRecipe(ItemStack(FPBlocksKt.netherrack_controller_block_idle), false,
+                "XYX",
+                'X', FPBlocksKt.netherrack_brick,
+                'Y', Block.furnaceNetherrackIdle)
+            register.registerShapedRecipe(ItemStack(FPBlocksKt.obsidian_controller_block_idle), false,
+                "XYX",
+                'X', FPBlocksKt.obsidian_brick,
+                'Y', Block.furnaceObsidianIdle)
+            register.registerShapedRecipe(ItemStack(FPBlocksKt.stone_controller_block_idle), false,
+                "XYX",
+                'X', FPBlocksKt.stone_brick,
+                'Y', Block.furnaceIdle)
+
+            register.registerShapedRecipe(ItemStack(FPBlocksKt.netherrack_controller_core), false,
+                "XYX",
+                'X', FPBlocksKt.netherrack_brick,
+                'Y', Block.hopperBlock)
+            register.registerShapedRecipe(ItemStack(FPBlocksKt.obsidian_controller_core), false,
+                "XYX",
+                'X', FPBlocksKt.obsidian_brick,
+                'Y', Block.hopperBlock)
+            register.registerShapedRecipe(ItemStack(FPBlocksKt.stone_controller_core), false,
+                "XYX",
+                'X', FPBlocksKt.stone_brick,
+                'Y', Block.hopperBlock)
+
+
+
+
+            register.registerShapedRecipe(ItemStack(FPItemsKt.gold_pan_empty, 3),
                 true,
                 "# #",
                 " # ",
-                '#', FPItemsKt.bake_clay
-            )
+                '#', FPItemsKt.bake_clay)
 
-            register.registerShapedRecipe(
-                ItemStack(FPItemsKt.clay_brick, 3),
+            register.registerShapedRecipe(ItemStack(FPItemsKt.clay_brick, 3),
                 true,
                 "###",
-                '#', Item.clay
-            )
+                '#', Item.clay)
 
             val ingots = arrayOf(FPItemsKt.zinc_ingot, FPItemsKt.aluminum_ingot, FPItemsKt.tin_ingot, FPItemsKt.nickel_ingot,
                 FPItemsKt.lead_ingot, FPItemsKt.platinum_ingot, FPItemsKt.uranium_ingot)
@@ -48,8 +95,6 @@ class FPCraftTableRecipesKt {
                     }
                 }
             }
-
-
         }
 
         private fun registerShapelessNineToOne(register: RecipeRegistryEvent, input: ItemStack, output: ItemStack) {

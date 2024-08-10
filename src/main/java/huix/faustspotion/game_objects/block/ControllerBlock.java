@@ -6,12 +6,12 @@ import net.xiaoyu233.fml.reload.utils.IdUtil;
 
 public abstract class ControllerBlock extends BlockDirectionalWithTileEntity {
 
-    protected final boolean isActive;
+    public final boolean isActive;
     protected Icon iconFront;
 
 
-    protected ControllerBlock(Material material, boolean isActive) {
-        super(IdUtil.getNextBlockID(), material, new BlockConstants());
+    protected ControllerBlock(int id, Material material, boolean isActive) {
+        super(id, material, new BlockConstants());
         this.setMaxStackSize(1);
         this.setHardness(8.0F);
         this.setResistance(0.875F);
@@ -19,26 +19,22 @@ public abstract class ControllerBlock extends BlockDirectionalWithTileEntity {
         this.isActive = isActive;
     }
 
+    public abstract int getMaxTemperature();
+
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, EnumFace face, float offset_x, float offset_y, float offset_z) {
-        if (player.onServer()) {
-            ReforgeTileEntity tile_entity = (ReforgeTileEntity) world.getBlockTileEntity(x, y, z);
-            if (tile_entity == null || !this.isActive) {
-                return false;
+        if (!world.isAirOrPassableBlock(World.getNeighboringBlockCoords(x, y, z, this.getDirectionFacing(world.getBlockMetadata(x, y, z)).getFace()), true)) {
+            return false;
+        } else {
+            if (player.onServer()) {
+                ReforgeTileEntity tile_entity = (ReforgeTileEntity)world.getBlockTileEntity(x, y, z);
+                if (tile_entity != null && this.isActive) {
+                    player.displayReforgeGui(tile_entity);
+                }
             }
 
-//            System.out.println("block");
-            player.displayReforgeGui(x, y, z, tile_entity);
+            return true;
         }
-
-        return true;
-
-    }
-
-    @Override
-    public void breakBlock(World world, int x, int y, int z, int block_id, int metadata) {
-        super.breakBlock(world, x, y, z, block_id, metadata);
-        world.removeBlockTileEntity(x, y, z);
     }
 
     @Override

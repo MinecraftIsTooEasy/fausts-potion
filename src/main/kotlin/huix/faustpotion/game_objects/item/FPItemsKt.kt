@@ -19,9 +19,9 @@ class FPItemsKt {
         val clay_brick = FPClayItemKt().setXPReward(0).setCraftingDifficultyAsComponent(1.0F)
 
         val zinc_ingot = ItemIngot(IdUtil.getNextItemID(), FPMaterialsKt.zinc).setXPReward(10)
-        val zinc_nugget = NuggetItem(IdUtil.getNextItemID(), FPMaterialsKt.zinc).setXPReward(10)
+        val zinc_nugget = NuggetItem(IdUtil.getNextItemID(), FPMaterialsKt.zinc)
         val aluminum_ingot = ItemIngot(IdUtil.getNextItemID(), FPMaterialsKt.aluminum).setXPReward(10)
-        val aluminum_nugget = NuggetItem(IdUtil.getNextItemID(), FPMaterialsKt.aluminum).setXPReward(10)
+        val aluminum_nugget = NuggetItem(IdUtil.getNextItemID(), FPMaterialsKt.aluminum)
 
         val tin_ingot = ItemIngot(IdUtil.getNextItemID(), FPMaterialsKt.tin).setXPReward(10)
         val tin_nugget = NuggetItem(IdUtil.getNextItemID(), FPMaterialsKt.tin)
@@ -34,11 +34,12 @@ class FPItemsKt {
         val uranium_ingot = ItemIngot(IdUtil.getNextItemID(), FPMaterialsKt.uranium).setXPReward(50)
         val uranium_nugget = NuggetItem(IdUtil.getNextItemID(), FPMaterialsKt.uranium)
 
-
-
+        val scrap = Item(IdUtil.getNextItemID(), Material.clay, "").setCreativeTab(CreativeTabs.tabFood)
 
 
         fun registerItemsForFP(registry: ItemRegistryEvent) {
+            registry.register( "Faust's potion", "scrap", scrap)
+
             registry.register( "Faust's potion", "zinc_ingot", zinc_ingot)
             registry.register( "Faust's potion", "zinc_nugget", zinc_nugget)
             registry.register( "Faust's potion", "aluminum_ingot", aluminum_ingot)

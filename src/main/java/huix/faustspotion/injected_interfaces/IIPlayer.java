@@ -4,6 +4,6 @@ import huix.faustspotion.game_objects.tileentity.ReforgeTileEntity;
 
 public interface IIPlayer {
 
-    default void displayReforgeGui(int x, int y, int z, ReforgeTileEntity tileEntity){}
+    default void displayReforgeGui(ReforgeTileEntity tileEntity){}
 
 }

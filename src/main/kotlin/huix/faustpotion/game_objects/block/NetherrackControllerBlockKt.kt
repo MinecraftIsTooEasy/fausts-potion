@@ -5,11 +5,15 @@ import net.minecraft.Block
 import net.minecraft.IconRegister
 import net.minecraft.Material
 
-class NetherrackControllerBlockKt(isActive: Boolean) : ControllerBlock(Material.netherrack, isActive) {
+class NetherrackControllerBlockKt(id:Int, isActive: Boolean) : ControllerBlock(id, Material.netherrack, isActive) {
 
     override fun registerIcons(iconRegister: IconRegister) {
         this.blockIcon = iconRegister.registerIcon("controller/netherrack/side");
         this.iconFront = iconRegister.registerIcon(if (this.isActive) "controller/netherrack/front_on" else "controller/netherrack/front_off");
+    }
+
+    override fun getMaxTemperature(): Int {
+        return 3000;
     }
 
     override fun getIdleBlockID(): Int {
