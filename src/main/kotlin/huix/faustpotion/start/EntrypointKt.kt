@@ -22,5 +22,12 @@ class EntrypointKt : PreLaunchEntrypoint {
             arrayOf<Any>(3.0F, 20, EnumQuality.average, "platinum") }
         EnumExtends.EQUIPMENT_MATERIAL.addEnum("URANIUM") {
             arrayOf<Any>(9.0F, 80, EnumQuality.fine, "uranium") }
+
+        EnumExtends.EQUIPMENT_MATERIAL.addEnum("BRONZE") {
+            arrayOf<Any>(6.0F, 40, EnumQuality.fine, "bronze") }
+        EnumExtends.EQUIPMENT_MATERIAL.addEnum("PIG_IRON") {
+            arrayOf<Any>(10.0F, 40, EnumQuality.fine, "pig_iron") }
+        EnumExtends.EQUIPMENT_MATERIAL.addEnum("STEEL") {
+            arrayOf<Any>(12.0F, 40, EnumQuality.fine, "steel") }
     }
 }

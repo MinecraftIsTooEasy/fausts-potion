@@ -147,7 +147,7 @@ public class ReforgeTileEntity extends TileEntity implements IInventory {
 
                                             ++this.forgeBuildTime;
 
-                                            if (this.forgeBuildTime == 6000) {
+                                            if (this.forgeBuildTime == 20) {
                                                 this.forgeBuildTime = 0;
 
                                                 ItemStack output = recipe.getRecipeOutput(this, typeValid);

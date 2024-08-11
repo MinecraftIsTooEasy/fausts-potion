@@ -59,11 +59,14 @@ public class ReforgeGui extends GuiContainer {
                         count = itemStack.stackSize * 9;
                     }
 
-                    this.itemRender.renderItemIntoGUI(this.mc.fontRenderer, this.mc.getTextureManager(),
-                            new ItemStack(MaterialHelperKt.Companion.getNuggetByMaterial(itemStack.getMaterialForRepairs())),
-                            x + 26, y + 8 + k * 20);
-                    //string, x, y, color, dropShadow
-                    this.fontRenderer.drawString(" *" + count, x + 36, y + 11 + k * 20, 4210752);
+                    if (MaterialHelperKt.Companion.getNuggetByMaterial(itemStack.getMaterialForRepairs()).getMaterialForRepairs()
+                            != Material.stone) {
+                        this.itemRender.renderItemIntoGUI(this.mc.fontRenderer, this.mc.getTextureManager(),
+                                new ItemStack(MaterialHelperKt.Companion.getNuggetByMaterial(itemStack.getMaterialForRepairs())),
+                                x + 26, y + 8 + k * 20);
+                        //string, x, y, color, dropShadow
+                        this.fontRenderer.drawString(" *" + count, x + 36, y + 11 + k * 20, 4210752);
+                    }
                 }
             }
         }

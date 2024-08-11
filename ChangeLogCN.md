@@ -1,13 +1,19 @@
 #### 声明
-* 烹饪锅材质来自  FarmersDelight(MIT)
-* 合金废料材质来自 TechReborn(MIT)
-* 锌,铝,锡,镍,铅,铂,铀材质来自 Silent Mechanisms
-* 锻造炉材质→屑史莱姆绘制,Gui→Xy_Lose
-* 烤制粘土材质来自 Don't Slay(侵删)
-* 淘金盘材质来自 TerraFirmaCraft: The Next Generation(EUPL v1.2)
-* 黏土砖材质来自 No Tree Punching(MIT)
+* 材质来自 mod: TinkersConstruct(MIT), Gregtech++, Don't Slay, GregTech 6(GUN v3)
+FarmersDelight(MIT)TechReborn(MIT), Silent Mechanisms, TerraFirmaCraft: The Next Generation(EUPL v1.2), No Tree Punching(MIT)
+* 材质来自 person: 屑史莱姆, Xy_Lose  
 
 配方可通过EMI查看
+
+## 240811(V5)
+### 合金
+* 可合成剑,斧,镐，铲(材料的优秀,为他们带来了更好的性质)
+#### 青铜
+* 在锻造炉温度高于800时,放入3铜1锡可合成
+#### 钢
+* 在锻造炉温度高于1000时,放入3铁1精碳可合成
+
+---
 
 ## 240810(V4)
 ### 结构

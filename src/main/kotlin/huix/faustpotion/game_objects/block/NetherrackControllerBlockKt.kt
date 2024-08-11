@@ -17,19 +17,19 @@ class NetherrackControllerBlockKt(id:Int, isActive: Boolean) : ControllerBlock(i
     }
 
     override fun getIdleBlockID(): Int {
-        return FPBlocksKt.netherrack_controller_block_idle.blockID
+        return BlocksKt.netherrack_controller_block_idle.blockID
     }
 
     override fun getActiveBlockID(): Int {
-        return FPBlocksKt.netherrack_controller_block.blockID
+        return BlocksKt.netherrack_controller_block.blockID
     }
 
     override fun getBrickBlock(): Block {
-        return FPBlocksKt.netherrack_brick
+        return BlocksKt.netherrack_brick
     }
 
     override fun getCoreBlock(): Block {
-        return FPBlocksKt.netherrack_controller_core
+        return BlocksKt.netherrack_controller_core
     }
 
 }

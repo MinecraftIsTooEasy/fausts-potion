@@ -1,6 +1,6 @@
 package huix.faustspotion.mixins.block;
 
-import huix.faustpotion.game_objects.material.FPMaterialsKt;
+import huix.faustpotion.game_objects.material.MaterialsKt;
 import net.minecraft.BlockConstants;
 import net.minecraft.BlockFalling;
 import net.minecraft.BlockGravel;
@@ -20,6 +20,6 @@ public class BlockGravelMixin extends BlockFalling {
             target = "Lnet/minecraft/BlockFalling;<init>(ILnet/minecraft/Material;Lnet/minecraft/BlockConstants;)V")
             , index = 1)
     private static Material changeItsMaterial(Material material) {
-        return FPMaterialsKt.Companion.getGravel();
+        return MaterialsKt.Companion.getGravel();
     }
 }

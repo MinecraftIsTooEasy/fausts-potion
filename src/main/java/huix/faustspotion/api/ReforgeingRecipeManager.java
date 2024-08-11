@@ -1,5 +1,6 @@
 package huix.faustspotion.api;
 
+import huix.faustpotion.game_objects.material.MaterialsKt;
 import net.minecraft.Item;
 import net.minecraft.ItemStack;
 import net.minecraft.Material;
@@ -14,11 +15,10 @@ public class ReforgeingRecipeManager {
     public List<ReforgeingRecipe> reforgeingRecipes = new ArrayList<>();
 
     private ReforgeingRecipeManager() {
-        this.addReforgeingRecipe(new MaterialStack(Material.adamantium, 3), 2000,
-                new MaterialStack(Material.copper, 2), new MaterialStack(Material.silver, 1));
-        this.addReforgeingRecipe(new MaterialStack(Material.mithril, 3), 0,
-                new MaterialStack(Material.copper, 2), new MaterialStack(Material.ancient_metal, 1),
-                new MaterialStack(Material.adamantium, 1));
+        this.addReforgeingRecipe(new MaterialStack(MaterialsKt.Companion.getBronze(), 4), 800,
+                new MaterialStack(Material.copper, 3), new MaterialStack(MaterialsKt.Companion.getTin(), 1));
+        this.addReforgeingRecipe(new MaterialStack(MaterialsKt.Companion.getSteel(), 3), 1000,
+                new MaterialStack(Material.coal, 1), new MaterialStack(Material.iron, 3));
     }
 
     public void addReforgeingRecipe(MaterialStack recipe_output, int min_temperature, Object ... objects) {

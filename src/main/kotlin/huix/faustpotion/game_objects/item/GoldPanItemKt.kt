@@ -1,6 +1,6 @@
 package huix.faustpotion.game_objects.item
 
-import huix.faustpotion.game_objects.material.FPMaterialsKt
+import huix.faustpotion.game_objects.material.MaterialsKt
 import net.minecraft.*
 import net.xiaoyu233.fml.reload.utils.IdUtil
 import java.util.*
@@ -9,7 +9,7 @@ class GoldPanItemKt(private val goldpan_material: Material, private val contents
     ItemVessel(IdUtil.getNextItemID(), goldpan_material, contents_material, 8, 16,
         8, "gold_pan/" + (if (contents_material == null) "empty"
         else (if (contents_material === Material.sand) "sand"
-        else (if (contents_material === FPMaterialsKt.gravel) "gravel"
+        else (if (contents_material === MaterialsKt.gravel) "gravel"
         else (if (contents_material === Material.clay) "clay"
         else "dirt"))))
     ) {
@@ -61,7 +61,7 @@ class GoldPanItemKt(private val goldpan_material: Material, private val contents
                     } else {
                         val rand: Random = world.rand
                         var dropItem : Item? = null;
-                        if (this.contains(FPMaterialsKt.gravel)) {
+                        if (this.contains(MaterialsKt.gravel)) {
                             if (rand.nextInt(10) > 2) {
                                 super.onItemUseFinish(item_stack, world, player)
                                 return
@@ -132,11 +132,11 @@ class GoldPanItemKt(private val goldpan_material: Material, private val contents
 
     private fun getPeer(vessel_material: Material, contents: Material?): ItemVessel {
         return when(contents) {
-            null -> FPItemsKt.gold_pan_empty
-            Material.sand -> FPItemsKt.gold_pan_sand
-            FPMaterialsKt.gravel -> FPItemsKt.gold_pan_gravel
-            Material.clay -> FPItemsKt.gold_pan_clay
-            else -> FPItemsKt.gold_pan_dirt
+            null -> ItemsKt.gold_pan_empty
+            Material.sand -> ItemsKt.gold_pan_sand
+            MaterialsKt.gravel -> ItemsKt.gold_pan_gravel
+            Material.clay -> ItemsKt.gold_pan_clay
+            else -> ItemsKt.gold_pan_dirt
         }
     }
 

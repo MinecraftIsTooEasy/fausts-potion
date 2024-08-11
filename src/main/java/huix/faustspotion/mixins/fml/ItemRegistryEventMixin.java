@@ -35,4 +35,20 @@ public class ItemRegistryEventMixin implements IIItemRegistryEvent {
         ((IItem) item).setNamespace(namespace);
         item.setMaxStackSize(block.getItemStackLimit());
     }
+
+    @Unique
+
+    @Override
+    public void registerItemBlockWithCraftingDifficulty(String namespace, String resourceLocation, Block block, float lowest_crafting_difficulty_to_produce) {
+        block.setUnlocalizedName(resourceLocation);
+        if (!((IBlock) block).hasNamespaceSet()) {
+            ((IBlock) block).setNamespace(namespace);
+        }
+
+        ((IBlock) block).setBlockTextureName(resourceLocation);
+        Item item = (new ItemBlock(block)).setUnlocalizedName(resourceLocation);
+        ((IItem) item).setNamespace(namespace);
+        item.setMaxStackSize(block.getItemStackLimit());
+        item.setLowestCraftingDifficultyToProduce(lowest_crafting_difficulty_to_produce);
+    }
 }

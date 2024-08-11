@@ -1,9 +1,8 @@
 package huix.faustspotion.api;
 
-import huix.faustpotion.game_objects.item.FPItemsKt;
+import huix.faustpotion.game_objects.item.ItemsKt;
 import huix.faustpotion.game_objects.material.MaterialHelperKt;
 import huix.faustspotion.game_objects.tileentity.ReforgeTileEntity;
-import net.minecraft.Item;
 import net.minecraft.ItemIngot;
 import net.minecraft.ItemNugget;
 import net.minecraft.ItemStack;
@@ -33,7 +32,7 @@ public class ReforgeingRecipe {
                 return new ItemStack(MaterialHelperKt.Companion.getIngotByMaterial(this.recipeOutput.material), this.recipeOutput.amount);
             }
         }
-        return new ItemStack(FPItemsKt.Companion.getScrap());
+        return new ItemStack(ItemsKt.Companion.getScrap());
     }
 
 }

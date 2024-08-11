@@ -13,23 +13,23 @@ class StoneControllerBlockKt(id:Int, isActive: Boolean) : ControllerBlock(id, Ma
     }
 
     override fun getMaxTemperature(): Int {
-        return 800;
+        return 801;
     }
 
     override fun getIdleBlockID(): Int {
-        return FPBlocksKt.stone_controller_block_idle.blockID
+        return BlocksKt.stone_controller_block_idle.blockID
     }
 
     override fun getActiveBlockID(): Int {
-        return FPBlocksKt.stone_controller_block.blockID
+        return BlocksKt.stone_controller_block.blockID
     }
 
     override fun getBrickBlock(): Block {
-        return FPBlocksKt.stone_brick
+        return BlocksKt.stone_brick
     }
 
     override fun getCoreBlock(): Block {
-        return FPBlocksKt.stone_controller_core
+        return BlocksKt.stone_controller_core
     }
 
 }

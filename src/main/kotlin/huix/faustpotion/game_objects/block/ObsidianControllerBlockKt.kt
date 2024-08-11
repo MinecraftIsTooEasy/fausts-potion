@@ -19,19 +19,19 @@ class ObsidianControllerBlockKt(id:Int, isActive: Boolean) : ControllerBlock(id,
     }
 
     override fun getIdleBlockID(): Int {
-        return FPBlocksKt.obsidian_controller_block_idle.blockID
+        return BlocksKt.obsidian_controller_block_idle.blockID
     }
 
     override fun getActiveBlockID(): Int {
-        return FPBlocksKt.obsidian_controller_block.blockID
+        return BlocksKt.obsidian_controller_block.blockID
     }
 
     override fun getBrickBlock(): Block {
-        return FPBlocksKt.obsidian_brick
+        return BlocksKt.obsidian_brick
     }
 
     override fun getCoreBlock(): Block {
-        return FPBlocksKt.obsidian_controller_core
+        return BlocksKt.obsidian_controller_core
     }
 
 }

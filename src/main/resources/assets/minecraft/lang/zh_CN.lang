@@ -21,6 +21,29 @@ item.uranium_nugget.name=铀粒
 item.uranium_ingot.name=铀锭
 item.scrap.name=合金废料
 
+item.bronze_sword.name=青铜剑
+item.bronze_sword_blade.name=青铜剑柄
+item.bronze_pickaxe.name=青铜镐
+item.bronze_pickaxe_head.name=青铜镐头
+item.bronze_axe.name=青铜斧
+item.bronze_axe_head.name=青铜斧头
+item.bronze_shovel.name=青铜铲
+item.bronze_shovel_head.name=青铜铲头
+
+item.steel_sword.name=钢剑
+item.steel_sword_blade.name=钢剑柄
+item.steel_pickaxe.name=钢镐
+item.steel_pickaxe_head.name=钢镐头
+item.steel_axe.name=钢斧
+item.steel_axe_head.name=钢斧头
+item.steel_shovel.name=钢铲
+item.steel_shovel_head.name=钢铲头
+
+item.bronze_ingot.name=青铜锭
+item.pig_iron_ingot.name=生铁锭
+item.steel_ingot.name=钢锭
+
+item.coal_brick.name=精煤锭
 
 
 

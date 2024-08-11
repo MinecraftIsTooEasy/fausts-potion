@@ -1,10 +1,10 @@
 package huix.faustpotion.event
 
 import com.google.common.eventbus.Subscribe
-import huix.faustpotion.game_objects.block.FPBlocksKt
-import huix.faustpotion.game_objects.item.FPItemsKt
-import huix.faustpotion.game_objects.recipe.FPCraftTableRecipesKt
-import huix.faustpotion.game_objects.recipe.FPFurnaceRecipesKt
+import huix.faustpotion.game_objects.block.BlocksKt
+import huix.faustpotion.game_objects.item.ItemsKt
+import huix.faustpotion.game_objects.recipe.CraftTableRecipesKt
+import huix.faustpotion.game_objects.recipe.FurnaceRecipesKt
 
 import net.xiaoyu233.fml.reload.event.ItemRegistryEvent
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent
@@ -13,14 +13,14 @@ class FaustPotionEvents {
 
     @Subscribe
     fun onRecipeRegister(event: RecipeRegistryEvent) {
-        FPFurnaceRecipesKt.registerRecipes()
-        FPCraftTableRecipesKt.registerRecipes(event)
+        FurnaceRecipesKt.registerRecipes()
+        CraftTableRecipesKt.registerRecipes(event)
     }
 
     @Subscribe
     fun onItemRegister(event: ItemRegistryEvent) {
-        FPItemsKt.registerItemsForFP(event)
-        FPBlocksKt.registerBlocksForFP(event)
+        ItemsKt.registerItemsForFP(event)
+        BlocksKt.registerBlocksForFP(event)
     }
 
 

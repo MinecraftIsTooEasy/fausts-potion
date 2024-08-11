@@ -15,7 +15,7 @@ public class RenderBlocksMixin {
 
 //    @ModifyConstant(method = "renderBlockAsItem", constant = @Constant(intValue = 3, ordinal = 0))
 //    private int fixControllerIcon(int constant, @Local(ordinal = 0, argsOnly = true) Block block) {
-//        if (block == FPBlocksKt.Companion.getNetherrack_controller_block_idle()) {
+//        if (block == BlocksKt.Companion.getNetherrack_controller_block_idle()) {
 //            System.out.println("111111111111111");
 //        }
 //        if (block == Block.dispenser || block == Block.dropper || block instanceof BlockFurnace) {
